@@ -36,9 +36,3 @@ Approximately 50% |0⟩ and 50% |1⟩
 Example:  
 {'0': 520, '1': 504}
 
-### What You Learn
-
-- How qubits differ from classical bits  
-- How the Hadamard gate works  
-- How measurement collapses a quantum state  
-- How to simulate quantum circuits using Qiskit
