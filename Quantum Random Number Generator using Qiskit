@@ -1,0 +1,81 @@
+This project demonstrates how to generate truly random numbers using quantum superposition.
+Classical computers generate pseudo-random numbers, but quantum randomness is based on the laws of physics — specifically, the probabilistic collapse of a qubit.
+
+In this project, I built a simple Quantum Random Number Generator (QRNG) using IBM Qiskit.
+The idea is straightforward:
+	•	Prepare a qubit in superposition using a Hadamard gate
+	•	Measure the qubit
+	•	The result will be 0 or 1 with equal 50–50 probability
+	•	Repeating the circuit gives a stream of quantum-generated random bits
+
+This is one of the simplest yet most fundamental building blocks in quantum cryptography.
+
+Objectives:
+Understand superposition & probabilistic measurement
+	•	Implement a single-qubit quantum circuit
+	•	Collect multiple random bits (0s and 1s)
+	•	Compare distribution to the expected uniform probability
+
+Technologies:
+- Python
+	•	Qiskit
+	•	IBM Quantum QASM Simulator
+
+The Circuit
+
+|0> ── H ── ■ Measure ──→ Classical bit
+
+
+Code (main.py)
+
+from qiskit import QuantumCircuit, Aer, execute
+import matplotlib.pyplot as plt
+
+# Quantum Random Number Generator (QRNG)
+
+def generate_random_bits(n_bits=20):
+    qc = QuantumCircuit(1, 1)
+    backend = Aer.get_backend('qasm_simulator')
+
+    results = []
+
+    for _ in range(n_bits):
+        # Reset circuit
+        qc = QuantumCircuit(1, 1)
+
+        # Step 1: Create superposition
+        qc.h(0)
+
+        # Step 2: Measure
+        qc.measure(0, 0)
+
+        # Execute
+        job = execute(qc, backend, shots=1)
+        result = job.result().get_counts()
+        bit = list(result.keys())[0]
+
+        results.append(bit)
+
+    return results
+
+
+# Generate 20 quantum random bits
+random_bits = generate_random_bits(20)
+print("Quantum Random Bits:", random_bits)
+
+# Count distribution
+zeros = random_bits.count('0')
+ones = random_bits.count('1')
+
+print(f"0s: {zeros}, 1s: {ones}")
+
+Output
+Quantum Random Bits: ['0', '1', '1', '0', '0', '1', '0', '1', '1', '0',
+                      '1', '0', '0', '1', '1', '0', '1', '0', '0', '1']
+
+0s: 10
+1s: 10
+
+
+
+
