@@ -1,4 +1,4 @@
-# Quantum Teleportation Protocol 🚀✨
+# Quantum Teleportation Protocol
 
 This project demonstrates **Quantum Teleportation**, a fundamental quantum information protocol that transfers an unknown qubit state from one place (Alice) to another (Bob) *without physically sending the qubit itself*.
 
