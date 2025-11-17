@@ -1,6 +1,6 @@
 # Quantum Teleportation Protocol
 
-This project demonstrates **Quantum Teleportation**, a fundamental quantum information protocol that transfers an unknown qubit state from one place (Alice) to another (Bob) *without physically sending the qubit itself*.
+This project demonstrates **Quantum Teleportation**, a fundamental quantum information protocol that transfers an unknown qubit state from one place (Ameena) to another (Badr) *without physically sending the qubit itself*.
 
 The process depends on:
 - Quantum entanglement  
