@@ -1,0 +1,3 @@
+# Grover’s Algorithm – Qiskit Implementation
+This project implements Grover’s search algorithm using Qiskit...
+
